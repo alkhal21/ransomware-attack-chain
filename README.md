@@ -93,7 +93,7 @@ index=winevent_log (EventCode=4624 OR EventCode=4625)
 ```
 *(Note: IP address `196.52.43.21` successfully logged in after 144 consecutive failed attempts.)*
 
-![Ransomware Attack Brute Force Logs](report/ransomware-attack-bruteforce.png)
+![Ransomware Attack Brute Force Logs](screenshots/ransomware-attack-bruteforce.png)
 
 ### 📈 2. Execution & Process Tree Generation
 The attack chain initiated when a user executed an Outlook-delivered Word macro, which passed obfuscated strings down to an unprivileged PowerShell process.
@@ -105,7 +105,7 @@ source="master_soc_training.csv" host="Al's Laptop" index="winevent_log" sourcet
 | table time SubjectUserName ParentProcessName ParentImage ParentProcessId Image NewProcessName ProcessId CommandLine LogonId LogonType EventCode Protocol SourceIp TargetUserName
 | sort 0 time
 ```
-![Command Execution Logs](report/ransomware-attack-command-execution.png)
+![Command Execution Logs](screenshots/ransomware-attack-command-execution.png)
 
 ### 🔑 3. Malware Persistence Mechanisms
 To survive local system restarts, the payload manipulated standard user run paths within the local registry hive.
@@ -118,7 +118,7 @@ source="master_soc_training.csv" index="winevent_log" sourcetype="csv" extracted
 | table time Computer Image TargetObject Details ParentImage 
 | sort 0 time
 ```
-![Registry Persistence Modification](report/ransomware-attack-registry-run-key.png)
+![Registry Persistence Modification](screenshots/ransomware-attack-registry-run-key.png)
 
 ### 🌐 4. Internal Lateral Movement
 Using legitimate administrative utilities, the compromised controller box pushed malicious services down across multiple adjacently grouped host targets inside the training cluster.
@@ -134,7 +134,7 @@ source="master_soc_training.csv" index="winevent_log" sourcetype="csv"
 
 | sort 0 -time
 ```
-![Lateral Movement Activity](report/ransomware-attack-lateral-movement.png)
+![Lateral Movement Activity](screenshots/ransomware-attack-lateral-movement.png)
 
 ### 💥 5. Final Ransomware Impact & Destruction
 The final phase of the attack resulted in immediate data unavailability as local archives were structured into encrypted blocks.
@@ -144,7 +144,7 @@ source="master_soc_training.csv" index=winevent_log sourcetype="csv"
 | where like(TargetFilename,"%.enc") 
 | stats dc(TargetFilename) as TotalEncryptedFiles
 ```
-![File Encryption Count](ransomware-attack-file-encryption.png)
+![File Encryption Count](screenshots/ransomware-attack-file-encryption.png)
 
 To prevent data restoration via automated mechanisms, the attacker forcefully stripped out local backups.
 ```splunk
@@ -154,7 +154,7 @@ source="master_soc_training.csv" index=winevent_log sourcetype="csv"
 | search CommandLine="vssadmin.exe*"
 | table time Computer CommandLine ParentImage Image
 ```
-![Shadow Copy Deletion](report/ransomware-attack-shadow-file-deletion.png)
+![Shadow Copy Deletion](screenshots/ransomware-attack-shadow-file-deletion.png)
 
 -----------------
 
