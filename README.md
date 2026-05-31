@@ -105,7 +105,6 @@ source="master_soc_training.csv" host="Al's Laptop" index="winevent_log" sourcet
 | table time SubjectUserName ParentProcessName ParentImage ParentProcessId Image NewProcessName ProcessId CommandLine LogonId LogonType EventCode Protocol SourceIp TargetUserName
 | sort 0 time
 ```
-![Command Execution Logs](screenshots/ransomware-attack-command-execution.png)
 
 ### 🔑 3. Malware Persistence Mechanisms
 To survive local system restarts, the payload manipulated standard user run paths within the local registry hive.
