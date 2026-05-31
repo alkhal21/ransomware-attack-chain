@@ -43,7 +43,7 @@ Events were organized chronologically to reconstruct the ransomware attack chain
 **5. Threat Mapping**
 Observed behavior was mapped to relevant MITRE ATT&CK techniques to better understand attacker tactics and objectives. 
 
-[Link to the complete investigation report]()
+[Link to the complete investigation report](Report/Ransomware_Attack_Chain_-_Log_Investigation_&_Threat_Detection_Report.pdf)
 -----------------
 
 ## Key Skills Demonstrated
