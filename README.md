@@ -117,7 +117,7 @@ source="master_soc_training.csv" index="winevent_log" sourcetype="csv" extracted
 | table time Computer Image TargetObject Details ParentImage 
 | sort 0 time
 ```
-![Registry Persistence Modification](screenshots/ransomware-attack-registry-run-key.png)
+![Registry Persistence Modification](screenshots/ransomware-attack-registry-run-key-creation.png)
 
 ### 🌐 4. Internal Lateral Movement
 Using legitimate administrative utilities, the compromised controller box pushed malicious services down across multiple adjacently grouped host targets inside the training cluster.
